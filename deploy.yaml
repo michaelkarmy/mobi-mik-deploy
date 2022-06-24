@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: ashuapp1
-  name: ashuapp1
-  namespace: ashu-project
+    app: mikapp1
+  name: mikapp1
+  namespace: mik-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ashuapp1
+      app: mikapp1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: ashuapp1
+        app: mikapp1
     spec:
       containers:
       - image: dockerashu/ashumobi:appv1
@@ -33,13 +33,13 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: ashusvc1
-  name: ashusvc1
-  namespace: ashu-project
+    app: miksvc1
+  name: miksvc1
+  namespace: mik-project
 spec:
   ports:
-  - name: 1234-80
-    port: 1234
+  - name: 1233-80
+    port: 1233
     protocol: TCP
     targetPort: 80
   selector: # need to match label of pods 
