@@ -5,6 +5,7 @@ metadata:
   labels:
     app: ashuapp1
   name: ashuapp1
+  namespace: ashu-project
 spec:
   replicas: 1
   selector:
@@ -23,3 +24,26 @@ spec:
         ports:
         - containerPort: 80
         resources: {}
+        
+## adding service with nodeport 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashusvc1
+  name: ashusvc1
+  namespace: ashu-project
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector: # need to match label of pods 
+    app: ashuapp1
+  type: NodePort
+status:
+  loadBalancer: {}
